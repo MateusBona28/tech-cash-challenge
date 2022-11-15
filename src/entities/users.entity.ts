@@ -1,8 +1,9 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { Account } from "./accounts.entity";
 
 @Entity("users")
 
-export class Users {
+export class User {
 
     @PrimaryGeneratedColumn("uuid")
     id: string
@@ -12,5 +13,9 @@ export class Users {
 
     @Column({ length: 120 })
     password: string
+
+    @OneToOne(() => Account)
+    @JoinColumn()
+    account: Account
 
 }
