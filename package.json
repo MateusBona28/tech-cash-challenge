@@ -19,7 +19,7 @@
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "tsc",
     "typeorm": "typeorm-ts-node-commonjs",
-    "start": "node dist/server.js"
+    "start": "docker-compose up"
   },
   "devDependencies": {
     "ts-node-dev": "^2.0.0",
