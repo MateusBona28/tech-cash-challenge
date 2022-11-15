@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 import AppDataSource from "../data-source";
 import { User } from "../entities/users.entity";
 import AppError from "../errors/AppError";
-import { IUserLogin } from "../interfaces/users.interfaces";
+import { IUserLogin, IUserResponse } from "../interfaces/users.interfaces";
 
 
 export const loginUserService = async ({ username, password }: IUserLogin): Promise<string> => {
@@ -12,7 +12,7 @@ export const loginUserService = async ({ username, password }: IUserLogin): Prom
 
     const users = await userRepository.find()
 
-    const userToSignIn = users.find((user: any) => user.username === username)
+    const userToSignIn: any = users.find((user: any) => user.username === username)
 
     if(!userToSignIn){
         throw new AppError("invalid username", 403);
@@ -23,6 +23,8 @@ export const loginUserService = async ({ username, password }: IUserLogin): Prom
     if(!passwordIsValid){
         throw new AppError("invalid username or password", 403);
     }
+
+    delete userToSignIn.password
 
     const token = jwt.sign(
         {

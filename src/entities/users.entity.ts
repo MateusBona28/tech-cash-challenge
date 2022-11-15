@@ -14,7 +14,7 @@ export class User {
     @Column({ length: 120 })
     password: string
 
-    @OneToOne(() => Account)
+    @OneToOne(() => Account, { eager: true })
     @JoinColumn()
     account: Account
 

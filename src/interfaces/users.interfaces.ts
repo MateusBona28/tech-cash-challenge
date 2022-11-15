@@ -15,6 +15,15 @@ export interface IUserLogin {
     password: string
 }
 
+export interface IUserCallback {
+    username: string
+    password?: string
+    account: {
+        id: string
+        balance: number
+    }
+}
+
 export const IUserKeys = {
     username: "string",
     password: "string"

@@ -102,8 +102,8 @@ export const objectAlreadyExists = async (model: any, instanceKey: any, instance
 
 export const validateDataToCreate = async (instance: any, interfaceToValidate: any, callback?: any) => {
 
-    validateInstanceKeys(instance, interfaceToValidate)
-    validateInstanceTypes(instance, interfaceToValidate)
+    await validateInstanceKeys(instance, interfaceToValidate)
+    await validateInstanceTypes(instance, interfaceToValidate)
 
     if (callback) {
         await callback(instance)

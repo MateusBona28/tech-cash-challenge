@@ -7,10 +7,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DB_HOST=db
-      - DB_PASSWORD=1234
-      - DB=tech_challenge
-      - DB_USER=super
+      - DATABASE_URL=postgres://super:1234@db:5432/tech_challenge
       - SECRET_KEY=secret_key
     depends_on:
       db:
