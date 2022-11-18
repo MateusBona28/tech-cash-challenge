@@ -6,7 +6,7 @@ export const createUserController = async (request: Request, response: Response)
 
     const newUser = await createUserService(request.body)
 
-    return response.json(newUser).status(201)
+    return response.status(201).json(newUser)
 
 }
 

@@ -14,6 +14,6 @@ export const createTransactionController = async (request: Request, response: Re
 
     const newTransaction = await createTransactionService(baseTransaction, debitedAccount.username)
 
-    return response.json(newTransaction).status(201)
+    return response.status(201).json(newTransaction)
 
 }
